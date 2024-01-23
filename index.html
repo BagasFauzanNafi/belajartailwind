@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth ">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/output.css">
     <title>Belajar Tailwind</title>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+} else {
+  document.documentElement.classList.remove('dark')
+}
+    </script>
 </head>
-<body>
+<body class="dark:bg-black">
   <header class="absolute bg-white top-0 left-0 w-full z-10 flex items-center">
     <div class="w-full ml-auto mr-auto px-[16px] py-[19px]">
       <div class="relative flex justify-between items-center">
@@ -19,19 +26,31 @@
               <span
                   class="humberger-line origin-bottom-left relative left-1 transition duration-500 ease-in-out"></span>
           </button>
-          <nav id="nav-menu" class="absolute py-6 right-4 max-w-[250px] w-full bg-white top-full rounded-lg shadow-lg hidden lg:block lg:static lg:max-w-full">
+          <nav id="nav-menu" class="absolute py-6 right-4 max-w-[250px] w-full bg-white top-full rounded-lg shadow-lg hidden lg:block lg:static lg:max-w-full lg:shadow-none lg:bg-transparent">
               <ul class="block lg:flex">
                   <li class="group">
-                      <a href="" class="text-base py-2 mx-8 flex group-hover:text-slate-200">Home</a>
+                      <a href="#home" class="text-base text-dark py-2 mx-8 flex group-hover:text-slate-200">Home</a>
                   </li>
-                  <li>
-                    <a href="" class="text-base py-2 mx-8 flex">Home</a>
+                  <li class="group">
+                    <a href="#about" class="text-base text-dark py-2 mx-8 flex">About</a>
                 </li>
-                <li>
-                  <a href="" class="text-base py-2 mx-8 flex">Home</a>
+                <li class="group">
+                  <a href="#contact" class="text-base text-dark py-2 mx-8 flex">Contact</a>
               </li>
-              <li>
-                <a href="" class="text-base py-2 mx-8 flex">Home</a>
+            <li class="group items-center pl-8">
+                <div class="flex">
+                    <span class="mr-2 text-sm text-slate-500">Light</span>
+                    <input type="checkbox" id="dark-toggle" class="hidden">
+                    <label for="dark-toggle">
+                        <div
+                            class="flex rounded-full h-5 w-9 bg-slate-400 items-center p-1 cursor-pointer">
+                            <div class="toggle-circle h-5 w-[1.20rem] ml-[-3px] bg-white rounded-full">
+
+                            </div>
+                        </div>
+                    </label>
+                    <span class="ml-2 text-sm text-slate-500">Dark</span>
+                </div>
             </li>
               </ul>
           </nav>
@@ -58,10 +77,10 @@
     </section>
     <!--section home end-->
     <!--section picture start-->
-    <section id="picture">
+    <section id="about">
         <div class="max-w-[1240px] mx-auto py-16 px-4 text-center">
-            <h1 class="font-bold text-lg mb-3">ALL PRODUCT HERE 100% ORIGINAL</h1>
-            <P class="font-semibold text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit.</P>
+            <h1 class="font-bold text-lg mb-3 dark:text-white">ALL PRODUCT HERE 100% ORIGINAL</h1>
+            <P class="font-semibold text-slate-300">Lorem ipsum dolor sit amet consectetur adipisicing elit.</P>
             <div class="grid grid-row-none gap-2 md:grid-cols-5 md:gap-4">
                 <img src="src/img/logogoogle.png" alt="" class="w-full h-full object-cover col-span-2 md:col-span-3 row-span-2" >
                 <img src="src/img/pixel1.png" alt="" class="w-full h-full object-cover" >
@@ -71,23 +90,23 @@
             </div>
             <div class="max-w-[1240px] mx-auto py-6 px-4 text-center">
               <h1 class="font-bold text-lg mb-3 md:text-3xl">Shop popular categories.</h1>
-              <p class="font-extralight text-slate-600 mb-5">With quality materials</p>
+              <p class="font-extralight text-slate-300 mb-5">With quality materials</p>
               <div class="justify-around">
                   <a href="" class="border inline-block p-2 rounded-2xl">
-                          <img class=" h-16 inline justify-center" src="src/img/watches.png" alt="">
-                          <p class="font-bold">Watches</p>
+                          <img class=" h-16 inline justify-center " src="src/img/watches.png" alt="">
+                          <p class="font-bold dark:text-slate-200">Watches</p>
                           
                   <a href="" class="border inline-block p-2 rounded-2xl">
-                      <img class=" h-16 inline justify-center" src="src/img/buds.png" alt="">
-                      <p class="font-bold">Buds</p>
+                      <img class=" h-16 inline justify-center " src="src/img/buds.png" alt="">
+                      <p class="font-bold dark:text-slate-200">Buds</p>
               </a>
               <a href="" class="border inline-block p-2 rounded-2xl">
                 <img class=" h-16 inline justify-center" src="src/img/cameras.png" alt="">
-                <p class="font-bold">Cameras</p>
+                <p class="font-bold dark:text-slate-200">Cameras</p>
         </a>
         <a href="" class="border inline-block p-2 rounded-2xl">
-          <img class=" h-16 inline justify-center" src="src/img/accesories.png" alt="">
-          <p class="font-bold">Accesories</p>
+          <img class=" h-16 inline justify-center " src="src/img/accesories.png" alt="">
+          <p class="font-bold dark:text-slate-200">Accesories</p>
   </a>
               </div>
           </div>
@@ -100,7 +119,7 @@
    <!-- about -->
   
 
-
+<section id="contact">
   <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-white dark:border-gray-700">
     <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-black">Work fast from anywhere</h5>
     <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">Stay up to date and move work forward with Bagas on iOS & Android. Download the app today.</p>
@@ -232,6 +251,14 @@
     </div>
   </div>
 </footer>
+</section>
+<!--back to top-->
+<a href="#home" class="fixed bottom-4 right-4 z-[9999] h-10 w-10 bg-red-500 rounded-full hidden animate-bounce" id="to-top">
+    <span class="flex justify-center items-center mt-2 ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: msFilter"><path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"></path></svg>
+    </span>
+</a>
+<!--back to top-->
 <!--section social media end-->
     <script src="src/script.js"></script>
 </body>
